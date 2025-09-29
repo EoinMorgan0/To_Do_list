@@ -16,6 +16,7 @@ namespace ToDoList
 
             while (option != "e")
             {
+                Console.WriteLine(" ");
                 Console.WriteLine("What would you like to do:");
                 Console.WriteLine("Enter 1 to add a task to the list.");
                 Console.WriteLine("Enter 2 to remoe a task from the list.");
