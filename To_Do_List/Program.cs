@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,31 +29,16 @@ namespace ToDoList
 
                 if (option == "1")
                 {
-                    Console.WriteLine("Enter the task you would like added to the list");
-                    string task = Console.ReadLine();
-                    tasklist.Add(task);
-                    Console.WriteLine($"Task {task} added to the list.");
-
+                    addTask();
                 }
                 else if (option == "2")
                 {
-                    for (int i = 0; i < tasklist.Count; i++)
-                    {
-                        Console.WriteLine(i + " : " + tasklist[i]);
-                    }
-                    Console.WriteLine("Please enter the number of the task to remove from the list.");
-                    int taskNumber = Convert.ToInt32(Console.ReadLine());
-                    tasklist.RemoveAt(taskNumber);
+                    removeTask();
 
                 }
                 else if (option == "3")
                 {
-                    Console.WriteLine("Current task in the list :");
-                    for (int i = 0; i < tasklist.Count; i++)
-                    {
-                        Console.WriteLine(tasklist[i]);
-
-                    }
+                    listTasks();
                 }
                 else if (option == "e")
                 {
@@ -65,6 +51,36 @@ namespace ToDoList
                 }
                 
             }
+            void addTask()
+            {
+                Console.WriteLine("Enter the task you would like added to the list");
+                string task = Console.ReadLine();
+                tasklist.Add(task);
+                Console.WriteLine($"Task {task} added to the list.");
+
+            }
+            void removeTask()
+            {
+                for (int i = 0; i < tasklist.Count; i++)
+                {
+                    Console.WriteLine(i + " : " + tasklist[i]);
+                }
+                Console.WriteLine("Please enter the number of the task to remove from the list.");
+                int taskNumber = Convert.ToInt32(Console.ReadLine());
+                tasklist.RemoveAt(taskNumber);
+            }
+            void listTasks()
+            {
+                Console.WriteLine("Current task in the list :");
+                for (int i = 0; i < tasklist.Count; i++)
+                {
+                    Console.WriteLine(tasklist[i]);
+
+                }
+
+            }
+
         }
+        
     }
 }
